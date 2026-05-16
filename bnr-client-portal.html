@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BNR Client Portal</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=IBM+Plex+Sans:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0e1b2e;
+    --navy-mid: #162236;
+    --navy-light: #1e3048;
+    --gold: #b8862a;
+    --gold-light: #d4a445;
+    --gold-pale: #f5edd8;
+    --cream: #f8f4ee;
+    --cream-mid: #f0e9de;
+    --cream-deep: #e6dccf;
+    --text-dark: #0e1b2e;
+    --text-mid: #3a4a5c;
+    --text-muted: #6b7a8d;
+    --divider: rgba(14,27,46,0.1);
+    --shadow-sm: 0 2px 8px rgba(14,27,46,0.08);
+    --shadow-md: 0 8px 24px rgba(14,27,46,0.12);
+    --shadow-lg: 0 20px 48px rgba(14,27,46,0.16);
+    --r: 6px;
+    --r-lg: 12px;
+    --font-display: 'Playfair Display', Georgia, serif;
+    --font-body: 'IBM Plex Sans', system-ui, sans-serif;
+    --font-mono: 'IBM Plex Mono', monospace;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+  body { font-family: var(--font-body); background: var(--cream); color: var(--text-dark); min-height: 100vh; }
+  .site-header { background: var(--navy); border-bottom: 2px solid var(--gold); padding: 0 2rem; position: sticky; top: 0; z-index: 100; }
+  .header-inner { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; height: 64px; }
+  .logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+  .logo-mark { width: 36px; height: 36px; flex-shrink: 0; }
+  .logo-text { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.55); line-height: 1.3; }
+  .logo-text strong { display: block; font-size: 13px; font-weight: 500; color: var(--gold-light); letter-spacing: 0.08em; }
+  .header-badge { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,255,255,0.35); padding: 4px 10px; border: 1px solid rgba(255,255,255,0.1); border-radius: 3px; }
+  .hero { background: var(--navy); padding: 72px 2rem 80px; text-align: center; position: relative; overflow: hidden; }
+  .hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 80% 60% at 50% 100%, rgba(184,134,42,0.08) 0%, transparent 70%); pointer-events: none; }
+  .hero-eyebrow { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 20px; }
+  .hero h1 { font-family: var(--font-display); font-size: clamp(2rem, 5vw, 3.5rem); font-weight: 400; color: white; line-height: 1.15; max-width: 680px; margin: 0 auto 20px; }
+  .hero h1 em { font-style: italic; color: var(--gold-light); }
+  .hero-sub { font-size: 15px; color: rgba(255,255,255,0.55); max-width: 460px; margin: 0 auto 40px; line-height: 1.7; }
+  .hero-meta { display: flex; align-items: center; justify-content: center; gap: 24px; flex-wrap: wrap; }
+  .hero-stat { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.12em; color: rgba(255,255,255,0.35); text-transform: uppercase; }
+  .hero-stat span { display: block; font-size: 20px; font-weight: 500; color: var(--gold-light); letter-spacing: 0; font-family: var(--font-display); font-style: italic; }
+  .divider-dot { width: 3px; height: 3px; background: rgba(255,255,255,0.15); border-radius: 50%; }
+  .main { max-width: 1100px; margin: 0 auto; padding: 64px 2rem 96px; }
+  .section-label { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 32px; display: flex; align-items: center; gap: 12px; }
+  .section-label::after { content: ''; flex: 1; height: 1px; background: var(--divider); }
+  .resource-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(320px, 100%), 1fr)); gap: 20px; margin-bottom: 64px; }
+  .resource-card { background: white; border-radius: var(--r-lg); border: 1px solid var(--cream-deep); box-shadow: var(--shadow-sm); overflow: hidden; text-decoration: none; color: inherit; display: flex; flex-direction: column; transition: box-shadow 0.2s ease, transform 0.2s ease, border-color 0.2s ease; }
+  .resource-card:hover { box-shadow: var(--shadow-md); transform: translateY(-2px); border-color: var(--gold); text-decoration: none; }
+  .card-accent { height: 4px; background: var(--gold); }
+  .card-accent.navy { background: var(--navy); }
+  .card-accent.teal { background: #2a7a8b; }
+  .card-accent.green { background: #3d7a4a; }
+  .card-body { padding: 28px 28px 24px; flex: 1; display: flex; flex-direction: column; }
+  .card-tag { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 12px; }
+  .card-title { font-family: var(--font-display); font-size: 1.3rem; font-weight: 600; color: var(--text-dark); line-height: 1.25; margin-bottom: 10px; }
+  .card-desc { font-size: 13.5px; color: var(--text-muted); line-height: 1.65; flex: 1; margin-bottom: 20px; }
+  .card-footer { display: flex; align-items: center; justify-content: space-between; padding-top: 16px; border-top: 1px solid var(--divider); }
+  .card-cta { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); display: flex; align-items: center; gap: 6px; }
+  .card-cta svg { transition: transform 0.18s ease; }
+  .resource-card:hover .card-cta svg { transform: translateX(3px); }
+  .card-meta { font-family: var(--font-mono); font-size: 10px; color: var(--text-muted); opacity: 0.6; }
+  .status-bar { background: var(--navy-mid); border-radius: var(--r-lg); border: 1px solid rgba(255,255,255,0.06); padding: 28px 36px; display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 24px; margin-bottom: 64px; }
+  .status-label { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: rgba(255,255,255,0.35); margin-bottom: 6px; }
+  .status-value { font-family: var(--font-display); font-size: 1.4rem; font-style: italic; color: var(--gold-light); }
+  .status-value.white { color: white; font-style: normal; font-size: 1rem; font-family: var(--font-body); font-weight: 500; }
+  .status-pip { display: inline-block; width: 7px; height: 7px; border-radius: 50%; background: #3daa5a; margin-right: 6px; animation: pulse 2s ease-in-out infinite; }
+  @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
+  .site-footer { background: var(--navy); border-top: 1px solid rgba(255,255,255,0.06); padding: 32px 2rem; }
+  .footer-inner { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+  .footer-copy { font-family: var(--font-mono); font-size: 11px; color: rgba(255,255,255,0.25); letter-spacing: 0.06em; }
+  .footer-copy a { color: var(--gold); text-decoration: none; }
+  .footer-copy a:hover { color: var(--gold-light); }
+  @media (max-width: 600px) { .hero { padding: 48px 1.25rem 56px; } .main { padding: 40px 1.25rem 64px; } .status-bar { padding: 20px; } .hero-meta { gap: 16px; } .header-badge { display: none; } .footer-inner { flex-direction: column; text-align: center; } }
+</style>
+</head>
+<body>
+<header class="site-header" role="banner">
+  <div class="header-inner">
+    <a href="." class="logo" aria-label="BNR Client Portal home">
+      <svg class="logo-mark" viewBox="0 0 36 36" fill="none" aria-hidden="true">
+        <rect width="36" height="36" rx="4" fill="#162236"/>
+        <path d="M8 26 Q18 10 28 26" stroke="#b8862a" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+        <path d="M8 20 Q18 6 28 20" stroke="#d4a445" stroke-width="1" stroke-linecap="round" fill="none" opacity="0.5"/>
+        <text x="18" y="23" font-family="Georgia,serif" font-size="10" font-weight="700" fill="white" text-anchor="middle">BNR</text>
+      </svg>
+      <div class="logo-text"><strong>B&amp;R Exterior Services</strong>Client Portal</div>
+    </a>
+    <div class="header-badge">Confidential &middot; May 2026</div>
+  </div>
+</header>
+<section class="hero" aria-labelledby="hero-heading">
+  <p class="hero-eyebrow">B&amp;R Exterior Services &middot; Conroe, TX</p>
+  <h1 id="hero-heading">Everything in one place,<br><em>built to close.</em></h1>
+  <p class="hero-sub">All deliverables, research, and proposals &mdash; organized so you can review, share, and decide.</p>
+  <div class="hero-meta">
+    <div class="hero-stat"><span>4</span>Deliverables</div>
+    <div class="divider-dot"></div>
+    <div class="hero-stat"><span>32</span>SEO Baseline</div>
+    <div class="divider-dot"></div>
+    <div class="hero-stat"><span>24</span>Territory Zones</div>
+    <div class="divider-dot"></div>
+    <div class="hero-stat"><span>$36k+</span>Year-1 Upside</div>
+  </div>
+</section>
+<main class="main" id="main-content">
+  <p class="section-label">Project Status</p>
+  <div class="status-bar" role="region" aria-label="Project status metrics">
+    <div class="status-item"><div class="status-label">Phase</div><div class="status-value">Phase 1</div></div>
+    <div class="status-item"><div class="status-label">Status</div><div class="status-value white"><span class="status-pip" aria-hidden="true"></span>Live &amp; Delivered</div></div>
+    <div class="status-item"><div class="status-label">SEO Score</div><div class="status-value">32/100</div></div>
+    <div class="status-item"><div class="status-label">Top Keyword Gap</div><div class="status-value white">Power wash near me</div></div>
+    <div class="status-item"><div class="status-label">Next Step</div><div class="status-value white">Growth Retainer</div></div>
+  </div>
+  <p class="section-label">All Deliverables</p>
+  <div class="resource-grid" role="list">
+    <a href="./bnr-presentation-html.html" class="resource-card" role="listitem" target="_blank" rel="noopener noreferrer">
+      <div class="card-accent navy"></div>
+      <div class="card-body">
+        <div class="card-tag">Deck &middot; Phase 1 Recap</div>
+        <h2 class="card-title">Client Presentation</h2>
+        <p class="card-desc">The full narrative &mdash; what was built, why it matters, where the revenue opportunity lives, and the retainer that captures it.</p>
+        <div class="card-footer">
+          <span class="card-cta">Open Deck <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+          <span class="card-meta">~8 min read</span>
+        </div>
+      </div>
+    </a>
+    <a href="./bnr-pricing-guide.html" class="resource-card" role="listitem" target="_blank" rel="noopener noreferrer">
+      <div class="card-accent"></div>
+      <div class="card-body">
+        <div class="card-tag">Pricing &middot; Market Comparison</div>
+        <h2 class="card-title">Pricing Guide</h2>
+        <p class="card-desc">Side-by-side market rates from DIY to full-service agency, plus the three retainer tiers &mdash; Foundation, Growth, and Dominate.</p>
+        <div class="card-footer">
+          <span class="card-cta">View Pricing <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+          <span class="card-meta">6 tiers compared</span>
+        </div>
+      </div>
+    </a>
+    <a href="./bnr-seo-report.html" class="resource-card" role="listitem" target="_blank" rel="noopener noreferrer">
+      <div class="card-accent teal"></div>
+      <div class="card-body">
+        <div class="card-tag">Analysis &middot; SEO &amp; AEO</div>
+        <h2 class="card-title">SEO Audit Report</h2>
+        <p class="card-desc">Full keyword gap analysis, competitor breakdown, and ranked action plan. Baseline score: 32/100 &mdash; with a clear roadmap to close the gap.</p>
+        <div class="card-footer">
+          <span class="card-cta">Read Report <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+          <span class="card-meta">Score: 32/100</span>
+        </div>
+      </div>
+    </a>
+    <a href="./bnr-outreach-map.html" class="resource-card" role="listitem" target="_blank" rel="noopener noreferrer">
+      <div class="card-accent green"></div>
+      <div class="card-body">
+        <div class="card-tag">Map &middot; Outreach Intelligence</div>
+        <h2 class="card-title">Territory Outreach Map</h2>
+        <p class="card-desc">24 zones scored by median household income, home age, and property type &mdash; pinpointing the highest-value prospects for algae &amp; mildew campaigns.</p>
+        <div class="card-footer">
+          <span class="card-cta">Explore Map <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+          <span class="card-meta">24 zones &middot; Tier A&ndash;D</span>
+        </div>
+      </div>
+    </a>
+  </div>
+  <p class="section-label">Next Steps</p>
+  <div style="background:white; border:1px solid var(--cream-deep); border-radius:var(--r-lg); padding:32px 36px; box-shadow:var(--shadow-sm);">
+    <p style="font-family:var(--font-display); font-size:1.2rem; color:var(--text-dark); margin-bottom:12px; line-height:1.4;">Ready to move from <em style="color:var(--navy-light);">delivered</em> to <em style="color:var(--gold);">compounding</em>?</p>
+    <p style="font-size:14px; color:var(--text-muted); line-height:1.7; max-width:580px;">The Growth retainer closes the 32/100 SEO gap, builds neighborhood landing pages, and puts an AI operator on staff for outreach, bookings, and site updates. Break-even: 22 additional jobs a year. Conservative year-one upside: <strong style="color:var(--text-dark);">$18k&ndash;$36k net</strong>.</p>
+    <div style="margin-top:20px; display:flex; gap:12px; flex-wrap:wrap; align-items:center;">
+      <a href="./bnr-pricing-guide.html" target="_blank" rel="noopener noreferrer" style="display:inline-flex; align-items:center; gap:8px; background:var(--gold); color:white; font-family:var(--font-mono); font-size:11px; letter-spacing:0.14em; text-transform:uppercase; padding:12px 20px; border-radius:var(--r); text-decoration:none;">Review Retainer Options <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      <a href="./bnr-presentation-html.html" target="_blank" rel="noopener noreferrer" style="display:inline-flex; align-items:center; gap:8px; border:1px solid var(--cream-deep); color:var(--text-mid); font-family:var(--font-mono); font-size:11px; letter-spacing:0.14em; text-transform:uppercase; padding:12px 20px; border-radius:var(--r); text-decoration:none;">View Full Deck</a>
+    </div>
+  </div>
+</main>
+<footer class="site-footer" role="contentinfo">
+  <div class="footer-inner">
+    <span class="footer-copy">B&amp;R Exterior Services &middot; Conroe, TX &middot; Client Portal</span>
+    <span class="footer-copy">Built by <a href="mailto:hello@genjess.com">GenJess</a> &middot; May 2026</span>
+  </div>
+</footer>
+</body>
+</html>
