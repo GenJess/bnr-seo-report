@@ -1,127 +1,91 @@
-# BNR Associates — AI-Powered Digital Transformation Hub
+# B&R Exterior Services — AI-Native Digital Ecosystem
 
-> **From a static WordPress brochure site to a fully AI-native sales and operations ecosystem — built in a single session.**
+**From a WordPress site with no conversion path → a fully autonomous digital operation built, deployed, and iterated in a single session.**
 
 ---
 
-## The Story
+## The Arc
 
-**Before:** [bnrassociatesllc.com](https://bnrassociatesllc.com) — a serviceable but conversion-dead WordPress site. No pricing, no instant quotes, no booking flow. A visitor had to call to find out what anything cost.
-
-**After:** A vertically integrated digital presence where a prospect can land, get an AI-generated quote in under 60 seconds, understand the value proposition, and book — without a single phone call required.
-
-**Live site:** [bnr-power-washing-jgpts-projects.vercel.app](https://bnr-power-washing-jgpts-projects.vercel.app)  
-**Live repo:** [github.com/jGPT-Automated/bnr-power-washing](https://github.com/jGPT-Automated/bnr-power-washing)
-
-This repository is the **project intelligence hub** — it houses the SEO audit, competitive analysis, outreach tools, client-facing deliverables, and strategic context that powered the transformation.
+| Stage | URL | Status |
+|-------|-----|--------|
+| Before | [bnrassociatesllc.com](https://bnrassociatesllc.com) | Original WordPress site — no CTA, no pricing, no quote flow |
+| New Site | [bnr-power-washing.vercel.app](https://bnr-power-washing-jgpts-projects.vercel.app) | AI-native redesign — quote tool, SEO architecture, conversion-first |
+| This Portal | [bnr-seo-report (Vercel)](https://bnr-seo-report.vercel.app) | Client deliverables hub — all reports, deck, map, and pricing |
 
 ---
 
 ## What's In This Repo
 
-| File | Purpose |
-|------|---------|
-| `index.html` | Full SEO audit report — keyword gaps, competitor analysis, on-page recommendations, and a 90-day action plan |
-| `bnr-client-portal.html` | Client-facing project portal — deliverable tracker, session notes, and next-step roadmap |
-| `outreach-territory-map.html` | Mapbox-powered sales territory map — zones scored by median income × home age × property type to surface highest-value prospects |
-| `bnr-pricing-guide.html` | Internal pricing reference guide |
-| `bnr-presentation-html.html` | Stakeholder presentation deck |
+### `index.html` — Client Portal Hub
+The entry point. All four deliverables in one nav-accessible dashboard. Shows project phase status, key metrics, and links to every artifact. Designed as a shareable client-facing URL — clean enough to send directly to BNR.
+
+### `bnr-presentation-html.html` — Client Presentation Deck
+A 7-slide web-native presentation covering:
+- The starting point (SEO 32/100, no conversion path)
+- What was built and why
+- The AI Quote Tool — how it inverts industry friction
+- Design philosophy: beauty and conversion as the same goal
+- The SEO gap analysis and opportunity map
+- Phase 2 growth path and retainer ROI
+
+### `bnr-pricing-guide.html` — Pricing & Retainer Guide
+Market rate comparison (DIY → freelancer → agency → B&R retainer) plus the three tier breakdowns — Foundation ($297), Growth ($597), Dominate ($997) — with ROI snapshot showing break-even at 22 additional jobs/year.
+
+### `bnr-seo-report.html` — SEO Audit Report
+Full keyword gap analysis, competitor breakdown (The Woodlands Pressure Washing, Conroe ProWash), Google ranking factors checklist, and prioritized 12-action plan. Baseline: 32/100.
+
+### `outreach-territory-map.html` — Outreach Territory Map
+24 Montgomery County zones scored 0–100 by median household income, home age (pre-1995 = higher algae/mildew risk), and home type. Tier A zones (score 90+) are the highest-value prospects for direct outreach campaigns. Built with Mapbox GL.
+
+### `B&R Redesign 2026.md` — Full Project Context
+The complete session record — all research, competitive analysis, design decisions, copy rationale, and technical choices documented in one place. The source of truth for this project.
 
 ---
 
-## The Build Philosophy
+## The Innovation: AI Quote Tool
 
-### Visual Beauty and Information Clarity Are the Same Thing
+The power washing industry standard: phone calls, 24–72 hour callbacks, friction at every step.
 
-Every build decision in this project started from one premise: **a confused visitor does not convert.** That means the hierarchy of information — what a prospect sees first, second, and third — is as much a design constraint as color or typography.
+The B&R approach: a homeowner lands on the site, answers 4 questions, and receives an accurate scoped estimate in under 60 seconds — 24/7, no phone tag, no wait.
 
-The site was built with:
-- **Fluid type scales** using `clamp()` — text always readable, never cramped or oversized
-- **Nexus design system** — warm neutral surfaces, teal accent reserved strictly for CTAs, zero decorative noise
-- **Dark/light mode** — respecting user preference, maintaining contrast on every surface
-- **One primary action per view** — no competing CTAs, no ambiguity about what to do next
-
-### Conversion as the North Star
-
-The original site buried friction at every step. The redesign inverts this entirely:
-
-- **Above the fold:** service clarity + trust signals + single CTA
-- **AI Quote Tool:** 5 inputs → instant price range → pre-filled booking form. The entire industry asks prospects to wait 24–48 hours for a quote. This site answers in seconds.
-- **Social proof placement:** reviews appear adjacent to pricing, not isolated on a separate page
-- **Mobile-first:** 60%+ of local service searches happen on mobile. Every touch target, every font size, every layout decision was validated at 375px first.
-
-### The AI Quote Tool — Why It Matters
-
-The quote flow is the highest-leverage feature on the site. It:
-
-1. **Eliminates the #1 drop-off point** — prospects who don't get a price leave and call a competitor
-2. **Qualifies leads automatically** — the inputs (sq footage, surface type, stain level) filter out mismatched jobs before a human touches the inquiry
-3. **Sets price anchoring** — giving a range upfront means the sales conversation starts from an informed baseline, not from scratch
-4. **Feeds the CRM** — every quote submission is a structured lead with job context attached
-
-This is not a chatbot or a gimmick. It is a conversion instrument designed around how local service buyers actually make decisions.
+This isn't a contact form with a delayed response. It's a fully autonomous intake operator that:
+- Qualifies the prospect (property type, square footage, services needed, location)
+- Generates a realistic estimate range based on actual service pricing
+- Captures lead data for follow-up
+- Primes the prospect to book before a competitor even returns their call
 
 ---
 
-## Outreach Territory Intelligence
+## Design Philosophy
 
-The `outreach-territory-map.html` scores Montgomery County zones across three signals:
+Every visual and structural decision was made against one question: **does this move someone closer to booking?**
 
-| Signal | Weight | Rationale |
-|--------|--------|-----------|
-| Median household income | 40% | Higher income = greater willingness to pay for premium exterior cleaning |
-| Median home build year | 40% | Older homes accumulate algae, mildew, and oxidation faster — higher service urgency |
-| Home type (single-family detached) | 20% | Best fit for pressure washing and soft wash services |
-
-**Tier A zones** (score 85+) like Bentwater/Lake Conroe Shores and Panorama Village represent the highest-density pipeline opportunity for door-to-door and direct mail campaigns.
-
----
-
-## SEO Audit Highlights
-
-The `index.html` audit covers:
-
-- **Keyword gap analysis** — high-intent terms BNR is invisible for vs. competitors ranking on page 1
-- **On-page audit** — title tags, meta descriptions, heading structure, schema markup
-- **Competitor breakdown** — what the top 3 local competitors do better and where BNR can outflank them
-- **90-day action plan** — prioritized by impact-to-effort ratio, not just SEO theory
+- **Navy + gold palette** — signals premium and established trust without alienating residential homeowners
+- **IBM Plex type system** — mono for data/labels, serif for authority, sans for readability
+- **Information hierarchy** — primary CTA above the fold on every page, quote flow accessible within 2 clicks from anywhere
+- **Conversion and aesthetics are the same goal** — a confusing page is an ugly page; a clear page is a beautiful page
+- **Mobile-first at 375px** — the majority of local service searches happen on mobile
+- **Performance budget** — static Vercel deployment targeting sub-1.5s LCP
 
 ---
 
-## Session Architecture
+## How Deployment Works
 
-This entire ecosystem was designed and built in a single agentic session:
-
-| Phase | Output |
-|-------|--------|
-| Discovery | Audited live site, identified conversion gaps, competitive landscape |
-| Strategy | SEO keyword map, ICP definition, territory scoring model |
-| Design | Nexus design system, dark/light mode, mobile-first layout |
-| Build | Full site — hero, services, AI quote tool, reviews, booking flow |
-| Intelligence | SEO audit report, client portal, outreach territory map |
-| Infrastructure | GitHub repo, Vercel deployment, CI/CD pipeline |
+- **GitHub (GenJess)** — source of truth for all files in this repo
+- **Vercel (generativejesse)** — deploy any public GitHub repo to Vercel; accounts don't need to match
+- To deploy: Vercel → New Project → Import `GenJess/bnr-seo-report` → Deploy
+- Live portal: `bnr-seo-report.vercel.app` (or whatever Vercel assigns)
 
 ---
 
 ## Built With
 
-- **Mapbox GL JS** — territory map visualization
-- **Vercel** — hosting and CI/CD
-- **GitHub** — version control and project hub
-- **Perplexity AI** — agentic design, build, strategy, and deployment
+- **Perplexity AI** — agentic build, GitHub pushes, and Vercel coordination
+- **Mapbox GL JS** — territory outreach map (requires public token)
+- **Google Fonts** — Playfair Display + IBM Plex Sans/Mono
+- **Vercel** — static hosting + CDN
+- **GitHub (GenJess)** — version control and deployment source
 
 ---
 
-## Deploying the Hub
-
-This repo is connected to Vercel. Any push to `main` triggers a redeploy of the SEO audit dashboard at the live URL.
-
-To add the outreach map to its own Vercel deployment:
-1. Fork or copy `outreach-territory-map.html`
-2. Replace the Mapbox token placeholder with your token from [account.mapbox.com](https://account.mapbox.com/access-tokens/)
-3. Connect to Vercel → deploy
-
----
-
-*BNR Associates LLC — Montgomery County, TX*  
-*Exterior cleaning, soft wash, pressure washing, algae & mildew treatment*
+*B&R Exterior Services — Conroe, TX — May 2026*

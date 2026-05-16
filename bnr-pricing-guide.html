@@ -1,1 +1,187 @@
-PLACEHOLDER_PRICING
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BNR Pricing Guide</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=IBM+Plex+Sans:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0e1b2e; --navy-mid: #162236; --navy-light: #1e3048;
+    --gold: #b8862a; --gold-light: #d4a445; --gold-pale: #f5edd8;
+    --cream: #f8f4ee; --cream-mid: #f0e9de; --cream-deep: #e6dccf;
+    --text-dark: #0e1b2e; --text-mid: #3a4a5c; --text-muted: #6b7a8d;
+    --divider: rgba(14,27,46,0.1);
+    --shadow-sm: 0 2px 8px rgba(14,27,46,0.08);
+    --shadow-md: 0 8px 24px rgba(14,27,46,0.12);
+    --r: 6px; --r-lg: 12px;
+    --font-display: 'Playfair Display', Georgia, serif;
+    --font-body: 'IBM Plex Sans', system-ui, sans-serif;
+    --font-mono: 'IBM Plex Mono', monospace;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+  body { font-family: var(--font-body); background: var(--cream); color: var(--text-dark); min-height: 100vh; }
+  .site-header { background: var(--navy); border-bottom: 2px solid var(--gold); padding: 0 2rem; position: sticky; top: 0; z-index: 100; }
+  .header-inner { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; height: 64px; }
+  .logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+  .logo-mark { width: 36px; height: 36px; flex-shrink: 0; }
+  .logo-text { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.55); line-height: 1.3; }
+  .logo-text strong { display: block; font-size: 13px; font-weight: 500; color: var(--gold-light); letter-spacing: 0.08em; }
+  .back-link { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.45); text-decoration: none; display: flex; align-items: center; gap: 6px; transition: color 0.18s; }
+  .back-link:hover { color: var(--gold-light); }
+  .hero { background: var(--navy); padding: 60px 2rem 72px; text-align: center; }
+  .hero-eyebrow { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 20px; }
+  .hero h1 { font-family: var(--font-display); font-size: clamp(1.8rem, 4vw, 3rem); font-weight: 400; color: white; line-height: 1.15; max-width: 600px; margin: 0 auto 16px; }
+  .hero h1 em { font-style: italic; color: var(--gold-light); }
+  .hero-sub { font-size: 15px; color: rgba(255,255,255,0.5); max-width: 480px; margin: 0 auto; line-height: 1.7; }
+  .main { max-width: 1100px; margin: 0 auto; padding: 64px 2rem 96px; }
+  .section-label { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 32px; display: flex; align-items: center; gap: 12px; }
+  .section-label::after { content: ''; flex: 1; height: 1px; background: var(--divider); }
+  .market-table { width: 100%; border-collapse: collapse; margin-bottom: 64px; background: white; border-radius: var(--r-lg); overflow: hidden; box-shadow: var(--shadow-sm); border: 1px solid var(--cream-deep); }
+  .market-table th { background: var(--navy); color: rgba(255,255,255,0.7); font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; padding: 14px 20px; text-align: left; }
+  .market-table td { padding: 14px 20px; font-size: 13.5px; border-bottom: 1px solid var(--cream-deep); color: var(--text-mid); }
+  .market-table tr:last-child td { border-bottom: none; }
+  .market-table tr:hover td { background: var(--cream); }
+  .market-table td:first-child { font-weight: 500; color: var(--text-dark); }
+  .highlight-row td { background: var(--gold-pale) !important; }
+  .highlight-row td:first-child { color: var(--gold); }
+  .tiers { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(300px,100%), 1fr)); gap: 20px; margin-bottom: 64px; }
+  .tier-card { background: white; border-radius: var(--r-lg); border: 1px solid var(--cream-deep); box-shadow: var(--shadow-sm); padding: 32px 28px; display: flex; flex-direction: column; }
+  .tier-card.featured { border-color: var(--gold); box-shadow: var(--shadow-md); position: relative; overflow: hidden; }
+  .tier-card.featured::before { content: 'Recommended'; position: absolute; top: 16px; right: -28px; background: var(--gold); color: white; font-family: var(--font-mono); font-size: 9px; letter-spacing: 0.16em; text-transform: uppercase; padding: 4px 36px; transform: rotate(45deg); }
+  .tier-name { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 8px; }
+  .tier-price { font-family: var(--font-display); font-size: 2.2rem; font-weight: 600; color: var(--text-dark); margin-bottom: 4px; }
+  .tier-price span { font-size: 1rem; font-weight: 400; font-family: var(--font-body); color: var(--text-muted); }
+  .tier-tagline { font-size: 13px; color: var(--text-muted); margin-bottom: 24px; line-height: 1.5; }
+  .tier-features { list-style: none; flex: 1; }
+  .tier-features li { font-size: 13.5px; color: var(--text-mid); padding: 8px 0; border-bottom: 1px solid var(--cream-deep); display: flex; align-items: flex-start; gap: 10px; }
+  .tier-features li:last-child { border-bottom: none; }
+  .tier-features li::before { content: ''; width: 5px; height: 5px; border-radius: 50%; background: var(--gold); flex-shrink: 0; margin-top: 7px; }
+  .tier-cta { margin-top: 24px; display: inline-flex; align-items: center; justify-content: center; gap: 8px; background: var(--navy); color: white; font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; padding: 13px 20px; border-radius: var(--r); text-decoration: none; transition: background 0.18s; }
+  .tier-cta:hover { background: var(--navy-light); }
+  .tier-card.featured .tier-cta { background: var(--gold); }
+  .tier-card.featured .tier-cta:hover { background: var(--gold-light); }
+  .roi-box { background: var(--navy-mid); border-radius: var(--r-lg); padding: 36px; color: white; margin-bottom: 32px; }
+  .roi-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 24px; margin-top: 24px; }
+  .roi-item .roi-label { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,255,255,0.4); margin-bottom: 6px; }
+  .roi-item .roi-val { font-family: var(--font-display); font-size: 1.6rem; font-style: italic; color: var(--gold-light); }
+  .site-footer { background: var(--navy); border-top: 1px solid rgba(255,255,255,0.06); padding: 32px 2rem; }
+  .footer-inner { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+  .footer-copy { font-family: var(--font-mono); font-size: 11px; color: rgba(255,255,255,0.25); letter-spacing: 0.06em; }
+  .footer-copy a { color: var(--gold); text-decoration: none; }
+  @media (max-width: 600px) { .main { padding: 40px 1.25rem 64px; } }
+</style>
+</head>
+<body>
+<header class="site-header" role="banner">
+  <div class="header-inner">
+    <a href="./index.html" class="logo" aria-label="Back to BNR Client Portal">
+      <svg class="logo-mark" viewBox="0 0 36 36" fill="none" aria-hidden="true">
+        <rect width="36" height="36" rx="4" fill="#162236"/>
+        <path d="M8 26 Q18 10 28 26" stroke="#b8862a" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+        <text x="18" y="23" font-family="Georgia,serif" font-size="10" font-weight="700" fill="white" text-anchor="middle">BNR</text>
+      </svg>
+      <div class="logo-text"><strong>B&amp;R Exterior Services</strong>Client Portal</div>
+    </a>
+    <a href="./index.html" class="back-link" aria-label="Back to portal">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+      Portal
+    </a>
+  </div>
+</header>
+<section class="hero">
+  <p class="hero-eyebrow">Pricing &amp; Retainer Tiers</p>
+  <h1>What the market charges.<br><em>What you get instead.</em></h1>
+  <p class="hero-sub">Side-by-side comparison of DIY, freelance, and agency rates — plus the three retainer options built specifically for B&amp;R.</p>
+</section>
+<main class="main" id="main-content">
+  <p class="section-label">Market Rate Comparison</p>
+  <table class="market-table" aria-label="Digital marketing market rate comparison">
+    <thead>
+      <tr>
+        <th>Provider Type</th>
+        <th>Monthly Cost</th>
+        <th>SEO</th>
+        <th>Content</th>
+        <th>Local Campaigns</th>
+        <th>AI Automation</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>DIY (owner time)</td><td>$0 + 10–20 hrs</td><td>None</td><td>None</td><td>None</td><td>None</td></tr>
+      <tr><td>Fiverr / Upwork freelancer</td><td>$200–$500</td><td>Basic</td><td>Generic</td><td>None</td><td>None</td></tr>
+      <tr><td>Local marketing agency</td><td>$1,500–$3,500</td><td>Standard</td><td>Monthly</td><td>Occasional</td><td>None</td></tr>
+      <tr><td>Full-service agency</td><td>$4,000–$8,000</td><td>Full</td><td>Weekly</td><td>Yes</td><td>Rare</td></tr>
+      <tr class="highlight-row"><td>B&amp;R Growth Retainer</td><td>$597–$997/mo</td><td>Full + AEO</td><td>Weekly</td><td>Monthly</td><td>Included</td></tr>
+    </tbody>
+  </table>
+
+  <p class="section-label">Retainer Tiers</p>
+  <div class="tiers">
+    <div class="tier-card">
+      <div class="tier-name">Foundation</div>
+      <div class="tier-price">$297 <span>/ month</span></div>
+      <p class="tier-tagline">Credibility baseline — look and rank better than 80% of local competitors.</p>
+      <ul class="tier-features">
+        <li>Site hosting + CDN (Vercel)</li>
+        <li>Monthly SEO tune-up (meta, schema, GMB)</li>
+        <li>2 location landing page updates</li>
+        <li>Monthly performance report</li>
+        <li>Email support</li>
+      </ul>
+      <a href="./index.html" class="tier-cta">Start Here</a>
+    </div>
+    <div class="tier-card featured">
+      <div class="tier-name">Growth</div>
+      <div class="tier-price">$597 <span>/ month</span></div>
+      <p class="tier-tagline">Close the SEO gap, build neighborhood authority, and put AI on the team.</p>
+      <ul class="tier-features">
+        <li>Everything in Foundation</li>
+        <li>4 neighborhood landing pages / month</li>
+        <li>AI quote &amp; inquiry operator (24/7)</li>
+        <li>Monthly outreach campaign (Tier A zones)</li>
+        <li>Google Ads setup + $200 ad credit</li>
+        <li>Weekly content (blog + GMB posts)</li>
+        <li>Competitor rank tracking (10 keywords)</li>
+      </ul>
+      <a href="./index.html" class="tier-cta">Best Value</a>
+    </div>
+    <div class="tier-card">
+      <div class="tier-name">Dominate</div>
+      <div class="tier-price">$997 <span>/ month</span></div>
+      <p class="tier-tagline">Full-stack growth engine — own Conroe and expand into adjacent markets.</p>
+      <ul class="tier-features">
+        <li>Everything in Growth</li>
+        <li>8 landing pages / month</li>
+        <li>AI-powered outreach sequences (SMS + email)</li>
+        <li>Full Google Ads management (up to $1,500 spend)</li>
+        <li>Monthly video content (before/after reels)</li>
+        <li>Quarterly strategy call + roadmap update</li>
+        <li>Priority Slack access</li>
+      </ul>
+      <a href="./index.html" class="tier-cta">Go All In</a>
+    </div>
+  </div>
+
+  <p class="section-label">ROI Snapshot — Growth Tier</p>
+  <div class="roi-box">
+    <p style="font-family:var(--font-display); font-size:1.2rem; font-style:italic; color:rgba(255,255,255,0.85); max-width:540px; line-height:1.5;">The Growth retainer pays for itself with 22 additional jobs a year — roughly 2 extra bookings a month from improved search visibility alone.</p>
+    <div class="roi-grid">
+      <div class="roi-item"><div class="roi-label">Monthly Retainer</div><div class="roi-val">$597</div></div>
+      <div class="roi-item"><div class="roi-label">Break-even Jobs / Year</div><div class="roi-val">22</div></div>
+      <div class="roi-item"><div class="roi-label">Conservative Year-1 Upside</div><div class="roi-val">$18k–$36k</div></div>
+      <div class="roi-item"><div class="roi-label">Avg Job Value</div><div class="roi-val">$325</div></div>
+    </div>
+  </div>
+</main>
+<footer class="site-footer" role="contentinfo">
+  <div class="footer-inner">
+    <span class="footer-copy">B&amp;R Exterior Services &middot; Conroe, TX &middot; <a href="./index.html">Client Portal</a></span>
+    <span class="footer-copy">Built by GenJess &middot; May 2026</span>
+  </div>
+</footer>
+</body>
+</html>
