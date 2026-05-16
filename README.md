@@ -1,175 +1,127 @@
-<div align="center">
+# BNR Associates — AI-Powered Digital Transformation Hub
 
-# B&R Power Washing — AI Project Hub
-
-### From Legacy WordPress to a Fully Deployed, AI-Native Web Ecosystem
-
-[![Main Site](https://img.shields.io/badge/Live_Site-bnr--power--washing.vercel.app-152B4F?style=for-the-badge&logo=vercel)](https://bnr-power-washing-jgpts-projects.vercel.app)
-[![SEO Report](https://img.shields.io/badge/SEO_Report-Deployed-B8943F?style=for-the-badge&logo=vercel)](https://bnr-seo-report.vercel.app)
-[![Outreach Map](https://img.shields.io/badge/Outreach_Map-Deployed-01696f?style=for-the-badge&logo=mapbox)](https://bnr-seo-report.vercel.app)
-[![Source Repo](https://img.shields.io/badge/Main_Repo-jGPT--Automated%2Fbnr--power--washing-181717?style=for-the-badge&logo=github)](https://github.com/jGPT-Automated/bnr-power-washing)
-
-> *"Skip the call. Get an instant quote."*
->
-> This repository is the **working project hub** for the B&R Power Washing digital transformation — housing the SEO competitive report, territory outreach map, and strategic context documents produced alongside the main site build. Every artifact here was deployed to Vercel through live API connections, with zero manual steps.
-
-</div>
+> **From a static WordPress brochure site to a fully AI-native sales and operations ecosystem — built in a single session.**
 
 ---
 
-## The Transformation: Before & After
+## The Story
 
-### Before — [bnrassociatesllc.com](https://bnrassociatesllc.com)
+**Before:** [bnrassociatesllc.com](https://bnrassociatesllc.com) — a serviceable but conversion-dead WordPress site. No pricing, no instant quotes, no booking flow. A visitor had to call to find out what anything cost.
 
-A standard WordPress/Elementor site doing what most local service sites do: list services, show a phone number, ask visitors to call. No pricing transparency. No online booking. No differentiation from the 200 other pressure washing companies ranking above it in Houston search results.
+**After:** A vertically integrated digital presence where a prospect can land, get an AI-generated quote in under 60 seconds, understand the value proposition, and book — without a single phone call required.
 
-### After — A Three-Part Digital Ecosystem
+**Live site:** [bnr-power-washing-jgpts-projects.vercel.app](https://bnr-power-washing-jgpts-projects.vercel.app)  
+**Live repo:** [github.com/jGPT-Automated/bnr-power-washing](https://github.com/jGPT-Automated/bnr-power-washing)
 
-Built end-to-end in a single agentic session through natural-language prompts and live API connections (GitHub, Vercel, Gemini, Mapbox, Cal.com, Cloudinary). Every deploy triggered automatically. Every asset generated programmatically.
-
----
-
-## Ecosystem Map
-
-### 🌐 1. The Main Site
-**[bnr-power-washing-jgpts-projects.vercel.app](https://bnr-power-washing-jgpts-projects.vercel.app)**
-→ Source: [github.com/jGPT-Automated/bnr-power-washing](https://github.com/jGPT-Automated/bnr-power-washing)
-
-A ground-up rebuild with a custom brand identity, SVG illustration library, AI-powered quote engine, Cal.com booking embed, gallery with filter UX, and a full schema.org + GEO optimization layer. Built as static HTML/CSS/JS with a single Vercel serverless function — zero framework, zero build step, sub-100ms TTFB globally.
-
-**The conversion moat:** Every competitor hides pricing behind *"starting at…"* or *"call for a quote."* The AI Quote Tool gives customers a real, photo-analyzed price range in 60 seconds — inverting the entire industry's friction model. Photo upload → Gemini Vision analysis → price range → Cal.com booking. Intent to calendar in one continuous flow.
+This repository is the **project intelligence hub** — it houses the SEO audit, competitive analysis, outreach tools, client-facing deliverables, and strategic context that powered the transformation.
 
 ---
 
-### 📊 2. The SEO Report *(this repo)*
-**Deployed via this repo to Vercel**
+## What's In This Repo
 
-An interactive competitive intelligence dashboard auditing B&R's keyword landscape, competitor gaps, and organic opportunity across the Houston exterior cleaning market. Built as a fully deployed Vercel web app with:
-
-- Dark/light mode toggle
-- Filterable keyword table with competition difficulty badges
-- Structured audit findings across 6 domains (technical SEO, content, backlinks, local signals, schema, GEO)
-- Numbered action plan prioritized by impact
-- Competitor breakdown with gap analysis
-
-Designed not just to look good, but to make information **immediately actionable** for a non-technical business owner.
+| File | Purpose |
+|------|---------|
+| `index.html` | Full SEO audit report — keyword gaps, competitor analysis, on-page recommendations, and a 90-day action plan |
+| `bnr-client-portal.html` | Client-facing project portal — deliverable tracker, session notes, and next-step roadmap |
+| `outreach-territory-map.html` | Mapbox-powered sales territory map — zones scored by median income × home age × property type to surface highest-value prospects |
+| `bnr-pricing-guide.html` | Internal pricing reference guide |
+| `bnr-presentation-html.html` | Stakeholder presentation deck |
 
 ---
 
-### 🗺️ 3. The Outreach Territory Map *(this repo)*
-**Deployed via this repo to Vercel**
+## The Build Philosophy
 
-A Mapbox GL-powered interactive map scoring 24 zones across Montgomery County (Conroe, The Woodlands, Lake Conroe corridor) by **sales outreach priority** — built around the insight that older homes in higher-income neighborhoods are the highest-value prospects for algae and mildew exterior cleaning.
+### Visual Beauty and Information Clarity Are the Same Thing
 
-**Scoring model (0–100 composite score):**
+Every build decision in this project started from one premise: **a confused visitor does not convert.** That means the hierarchy of information — what a prospect sees first, second, and third — is as much a design constraint as color or typography.
+
+The site was built with:
+- **Fluid type scales** using `clamp()` — text always readable, never cramped or oversized
+- **Nexus design system** — warm neutral surfaces, teal accent reserved strictly for CTAs, zero decorative noise
+- **Dark/light mode** — respecting user preference, maintaining contrast on every surface
+- **One primary action per view** — no competing CTAs, no ambiguity about what to do next
+
+### Conversion as the North Star
+
+The original site buried friction at every step. The redesign inverts this entirely:
+
+- **Above the fold:** service clarity + trust signals + single CTA
+- **AI Quote Tool:** 5 inputs → instant price range → pre-filled booking form. The entire industry asks prospects to wait 24–48 hours for a quote. This site answers in seconds.
+- **Social proof placement:** reviews appear adjacent to pricing, not isolated on a separate page
+- **Mobile-first:** 60%+ of local service searches happen on mobile. Every touch target, every font size, every layout decision was validated at 375px first.
+
+### The AI Quote Tool — Why It Matters
+
+The quote flow is the highest-leverage feature on the site. It:
+
+1. **Eliminates the #1 drop-off point** — prospects who don't get a price leave and call a competitor
+2. **Qualifies leads automatically** — the inputs (sq footage, surface type, stain level) filter out mismatched jobs before a human touches the inquiry
+3. **Sets price anchoring** — giving a range upfront means the sales conversation starts from an informed baseline, not from scratch
+4. **Feeds the CRM** — every quote submission is a structured lead with job context attached
+
+This is not a chatbot or a gimmick. It is a conversion instrument designed around how local service buyers actually make decisions.
+
+---
+
+## Outreach Territory Intelligence
+
+The `outreach-territory-map.html` scores Montgomery County zones across three signals:
 
 | Signal | Weight | Rationale |
-|---|---|---|
-| Median household income | 40% | Higher income = more willing to invest in curb appeal and premium services |
-| Median home build year | 40% | Pre-1995 homes = more exterior weathering, algae exposure, mildew susceptibility |
-| Home type (single-family detached) | 20% | Best fit for residential pressure/soft-wash services |
+|--------|--------|-----------|
+| Median household income | 40% | Higher income = greater willingness to pay for premium exterior cleaning |
+| Median home build year | 40% | Older homes accumulate algae, mildew, and oxidation faster — higher service urgency |
+| Home type (single-family detached) | 20% | Best fit for pressure washing and soft wash services |
 
-**Top Tier A zones:** Bentwater / Lake Conroe Shores (score 98, median income $185k, avg built 1992), Panorama Village (score 97, avg built 1979), Montgomery Proper (score 89).
-
-**Map features:**
-- Bubble markers sized by tier, glowing rings on Tier A zones
-- Click-to-popup with income, home age, and algae/mildew risk label
-- Sidebar filters: slice by income threshold and home build year
-- Dark Mapbox base map matching the project's visual system
-
-> **To use live:** swap in your Mapbox public token at [account.mapbox.com/access-tokens](https://account.mapbox.com/access-tokens/)
+**Tier A zones** (score 85+) like Bentwater/Lake Conroe Shores and Panorama Village represent the highest-density pipeline opportunity for door-to-door and direct mail campaigns.
 
 ---
 
-## The Design Philosophy
+## SEO Audit Highlights
 
-Every artifact in this project was built around two principles that typically compete but shouldn't:
+The `index.html` audit covers:
 
-### Visual Beauty
-Custom SVG illustrations that scale infinitely and never break. A precise brand palette — Ink `#0F1117` + Navy Blue `#152B4F` dominant + Antique Gold `#B8943F` sparing — that reads premium without being cold. Fluid type scales with `clamp()`. Scroll-triggered reveals, animated stat counters, dark/light mode everywhere. Inspired by GlossGenius's *"crisp digital ledger"* aesthetic — translated into an exterior cleaning context.
-
-### Information Clarity & Conversion Optimization
-Beauty that doesn't convert is decoration. Every design decision was interrogated: *does this move a visitor toward booking?* The AI Quote Tool exists because it answers the only question customers actually care about — *"what will this cost me?"* — before they bounce to a competitor. The outreach map exists because sales rep time is finite and should be spent on Tier A zones first. The SEO report exists because you can't improve what you can't measure.
-
----
-
-## Files in This Repo
-
-```
-bnr-seo-report/
-├── bnr-seo-report.html        # Interactive SEO competitive intelligence dashboard
-├── bnr-outreach-map.html      # Mapbox territory map — 24 scored prospect zones
-└── README.md                  # This file — project hub and narrative
-```
+- **Keyword gap analysis** — high-intent terms BNR is invisible for vs. competitors ranking on page 1
+- **On-page audit** — title tags, meta descriptions, heading structure, schema markup
+- **Competitor breakdown** — what the top 3 local competitors do better and where BNR can outflank them
+- **90-day action plan** — prioritized by impact-to-effort ratio, not just SEO theory
 
 ---
 
-## The Agentic Workflow
+## Session Architecture
 
-This entire ecosystem — three deployed web applications, a custom brand identity, an AI-powered serverless API, a Gemini Vision integration, competitive SEO research, territory scoring logic, and this documentation — was produced in a single session through natural-language prompts.
-
-### Session Arc
+This entire ecosystem was designed and built in a single agentic session:
 
 | Phase | Output |
-|---|---|
-| Discovery | Audit of `bnrassociatesllc.com`, competitor research, category benchmarks |
-| Brand direction | Color tokens, typography system, Refero/GlossGenius reference locked |
-| Identity | Gold metallic logo refresh, custom SVG illustration library (12 assets) |
-| v1 site | Premium homepage, mobile-first, scroll animations, schema.org |
-| v2 (hierarchy fix) | Blue promoted to dominant secondary; gold restrained to accent moments |
-| v3 (full-stack) | Gallery page, AI Quote Tool with live Gemini Vision, Cal.com embed, `/api/quote` serverless function, sitemap, `llms.txt` |
-| SEO + GEO layer | Comprehensive schema.org, AI-crawler `robots.txt`, meta optimization |
-| **SEO Report** | Interactive competitive intelligence dashboard → deployed to Vercel via this repo |
-| **Outreach Map** | Mapbox territory map scored by income + home age → Tier A prospect zones |
-| Handoff | This README |
-
-### Why This Matters
-
-- **Agentic delivery compresses timelines without sacrificing quality.** What traditionally required separate designer, developer, and SEO specialist across 4–6 weeks was executed in one session — and the quality bar is higher, not lower.
-- **Every connection was live.** GitHub commits, Vercel deploys, Gemini Vision API calls, Mapbox tile rendering — no simulations, no mocked outputs.
-- **The AI Quote Tool isn't a feature — it's a positioning statement.** When every competitor says "call for quote," the one that gives instant pricing communicates trust, modernity, and confidence. The conversion lift is real, but the brand signal is bigger.
-- **GEO matters now, not later.** AI agent recommendations (ChatGPT, Perplexity, Claude) are becoming a primary discovery surface for local services. `llms.txt` + AI-crawler allowlist + pricing transparency cost zero and compound over time.
+|-------|--------|
+| Discovery | Audited live site, identified conversion gaps, competitive landscape |
+| Strategy | SEO keyword map, ICP definition, territory scoring model |
+| Design | Nexus design system, dark/light mode, mobile-first layout |
+| Build | Full site — hero, services, AI quote tool, reviews, booking flow |
+| Intelligence | SEO audit report, client portal, outreach territory map |
+| Infrastructure | GitHub repo, Vercel deployment, CI/CD pipeline |
 
 ---
 
-## Strategic Insights
+## Built With
 
-**Pricing transparency is a moat in opaque markets.** Local services (HVAC, roofing, pest control, landscaping) all run the "starting at" / "call for quote" playbook. Whoever shows real numbers first owns category trust — and that trust converts.
-
-**Outreach scoring beats geography.** Routing a sales rep by zip code is blunt. Scoring zones by income × home age × housing type means the first knock of the day is on the most likely door.
-
-**SEO and GEO are different games with different rules.** Traditional SEO optimizes for crawl signals and keyword density. GEO optimizes for how an LLM would describe your business when asked — which means `llms.txt`, structured pricing data, explicit trust signals, and named service areas.
-
----
-
-## Metrics to Track Post-Launch
-
-| Metric | Baseline | Target |
-|---|---|---|
-| Time-to-quote | Hours to days (phone/form) | 60 seconds (AI tool) |
-| Quote → booking conversion | ~12–18% (industry) | 25%+ |
-| Google ranking (target keywords) | Not in top 10 | Top 3 within 90 days |
-| AI agent inclusion | Not mentioned | Top 5 for "best pressure washing Houston" within 30 days |
-| Tier A zones booked (outreach map) | 0 tracked | Pipeline in Airtable within 30 days |
+- **Mapbox GL JS** — territory map visualization
+- **Vercel** — hosting and CI/CD
+- **GitHub** — version control and project hub
+- **Perplexity AI** — agentic design, build, strategy, and deployment
 
 ---
 
-## Credits
+## Deploying the Hub
 
-| | |
-|---|---|
-| **Strategy + direction** | AJ (Jesse) — Applied AI PM, Texas |
-| **Built with** | Perplexity AI (agentic workflow) |
-| **Design reference** | Refero "All-In-One Salon" / GlossGenius |
-| **Infra** | Vercel · GitHub · Gemini · Mapbox · Cal.com · Cloudinary |
-| **For** | B&R Power Washing · BNR Associates LLC · Houston, TX |
+This repo is connected to Vercel. Any push to `main` triggers a redeploy of the SEO audit dashboard at the live URL.
+
+To add the outreach map to its own Vercel deployment:
+1. Fork or copy `outreach-territory-map.html`
+2. Replace the Mapbox token placeholder with your token from [account.mapbox.com](https://account.mapbox.com/access-tokens/)
+3. Connect to Vercel → deploy
 
 ---
 
-<div align="center">
-
-*From [bnrassociatesllc.com](https://bnrassociatesllc.com) → to a live, AI-native, conversion-optimized web ecosystem.*
-
-[Main Site →](https://bnr-power-washing-jgpts-projects.vercel.app) · [AI Quote Tool →](https://bnr-power-washing-jgpts-projects.vercel.app/#instant-quote) · [Source Repo →](https://github.com/jGPT-Automated/bnr-power-washing)
-
-</div>
+*BNR Associates LLC — Montgomery County, TX*  
+*Exterior cleaning, soft wash, pressure washing, algae & mildew treatment*
